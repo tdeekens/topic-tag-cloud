@@ -10,14 +10,15 @@ var
     noInfo: false,
     watch: true,
     hot: true,
-    inline: true,
     port: 8080
   },
   webpackConfig = {
     target: 'web',
     debug: true,
     devtool: 'inline-source-map',
-    entry: './src/index.js',
+    entry: [
+      './src/index.js'
+    ],
     output: {
       path: './dist/',
       filename: 'topic-tag-cloud.min.js',
@@ -37,10 +38,20 @@ var
     progress: true,
     failOnError: true,
     module: {
-      loaders: [
-        { test: /\.js?$/, loaders: ['babel'], exclude: /node_modules/ },
-        { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?optional[]=runtime'}
-      ]
+      loaders: [{
+        test: /\.json/,
+        loader: 'json-loader'
+      }, {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          stage: 0
+        }
+      }, {
+        test: /\.css/,
+        loader: 'style-loader!css-loader'
+      }]
     }
   },
   plugins = {
