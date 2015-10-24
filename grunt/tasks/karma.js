@@ -9,6 +9,11 @@ module.exports = function(grunt) {
       browsers: ['Chrome'],
       reporters: ['mocha']
     },
+    dev: {
+      browsers: ['Chrome'],
+      reporters: ['mocha'],
+      singleRun: false
+    },
     bs_desktop_ci: {
       browserDisconnectTimeout: 10000,
       browserDisconnectTolerance: 1,
