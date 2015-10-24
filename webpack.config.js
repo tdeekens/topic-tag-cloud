@@ -22,9 +22,13 @@ var
       path: './dist/',
       filename: 'topic-tag-cloud.min.js',
     },
-    modulesDirectories: [
-      './src'
-    ],
+    resolve: {
+      alias: {},
+      modulesDirectories: [
+        'src'
+      ],
+      extensions: ['', '.js']
+    },
     stats: {
       colors: true,
       modules: true,
