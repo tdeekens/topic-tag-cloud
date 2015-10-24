@@ -1,0 +1,46 @@
+{
+  "name": "topic-tag-cloud",
+  "version": "0.0.0",
+  "description": "A demo application rendering a tag cloud from an fixture.",
+  "scripts": {
+    "test": "grunt ci-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tdeekens/topic-tag-cloud.git"
+  },
+  "keywords": [
+    "tag",
+    "cloud",
+    "topic",
+    "demo"
+  ],
+  "author": "Tobias Deekens <nerd@tdeekens.name> (http://tdeekens.name)",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/tdeekens/topic-tag-cloud/issues"
+  },
+  "homepage": "https://github.com/tdeekens/topic-tag-cloud",
+  "dependencies": {
+    "grunt-cli": "0.1.13"
+  },
+  "devDependencies": {
+    "babel-eslint": "4.1.3",
+    "eslint": "1.7.3",
+    "grunt": "0.4.5",
+    "grunt-eslint": "17.3.1",
+    "load-grunt-config": "0.17.2",
+    "time-grunt": "1.2.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-cli": "~0.1.13"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        "tasks"
+      ]
+    }
+  }
+}
