@@ -6,7 +6,8 @@
     "eslint"
   ],
   "ci-test": [
-    "eslint"
+    "eslint",
+    "karma:travis_ci"
   ],
   "fixtures": [
     "hapi:fixtures",
