@@ -2,7 +2,18 @@
 
 var
   webpack = require('webpack'),
-  config = {
+  devServerConfig = {
+    host: 'localhost',
+    contentBase: './',
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    quiet: false,
+    noInfo: false,
+    watch: true,
+    hot: true,
+    inline: true,
+    port: 8080
+  },
+  webpackConfig = {
     target: 'web',
     debug: true,
     devtool: 'inline-source-map',
@@ -15,17 +26,9 @@ var
       './src'
     ],
     stats: {
-      colors: false,
+      colors: true,
       modules: true,
       reasons: true
-    },
-    devServer: {
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      quiet: true,
-      noInfo: true,
-      watch: true,
-      hot: true,
-      inline: true
     },
     progress: true,
     failOnError: true,
@@ -56,13 +59,23 @@ var
 
 let getConfig = function(isProduction) {
   let
-    _config = config;
+    _config = {
+      webpack: webpackConfig,
+      devServer: devServerConfig
+    };
 
   if (isProduction) {
-    _config.plugins = plugins['production'];
-    delete _config.devtool;
+    _config.webpack.plugins = plugins['production'];
+
+    delete _config.webpack.devtool;
+
+    _config.webpack.keepalive = false;
   } else {
-    _config.plugins = plugins['development'];
+    _config.devServer.keepalive = true;
+
+    _config.webpack.plugins = plugins['development'];
+
+    _config.devServer = devServerConfig;
   }
 
   return _config;

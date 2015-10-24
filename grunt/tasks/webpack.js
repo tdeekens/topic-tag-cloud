@@ -1,3 +1,3 @@
 module.exports = {
-  build: require('../../webpack.config.js')(true)
+  build: require('../../webpack.config.js')(true).webpack
 }
