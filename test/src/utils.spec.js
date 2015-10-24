@@ -1,4 +1,4 @@
-import { min, max } from '../../src/utils';
+import { min, max, ceil } from '../../src/utils';
 import chai from 'chai';
 
 chai.should();
@@ -35,6 +35,20 @@ describe('utils', () => {
 
     it('should return `undefined` for empty arrays', () => {
       (max([]) === undefined).should.be.true;
+    });
+  });
+
+  describe('ceil', () => {
+    it('should not touch integers', () => {
+      ceil(1).should.be.equal(1);
+      ceil(23).should.be.equal(23);
+      ceil(-3).should.be.equal(-3);
+    });
+
+    it('should round up positive and negative numbers', () => {
+      ceil(1.5).should.be.equal(2);
+      ceil(2.3).should.be.equal(3);
+      ceil(-3.3).should.be.equal(-3);
     });
   });
 });

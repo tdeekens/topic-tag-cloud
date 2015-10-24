@@ -25,3 +25,13 @@ export function max(values) {
     return ( biggest > candidate ? biggest : candidate );
   });
 };
+
+/**
+ * Round a number upward to it's nearest integer.
+ *
+ * @param {Number} Number to be rounded.
+ * @return {number} The rounded number.
+ */
+export function ceil(number) {
+  return Math.ceil(number);
+}
