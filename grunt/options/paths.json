@@ -1,4 +1,8 @@
 {
+  "mocks": {
+    "src": "mocks/**/*",
+    "server": "mocks/server.js"
+  },
   "src": {
     "lint": "src/**/*.js",
     "js": "src/"

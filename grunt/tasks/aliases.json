@@ -8,7 +8,11 @@
   "ci-test": [
     "eslint"
   ],
+  "fixtures": [
+    "hapi:fixtures",
+    "watch:fixtures"
+  ],
   "serve": [
-    
+    "fixtures"
   ]
 }
