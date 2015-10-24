@@ -12,7 +12,7 @@ describe('Index', () => {
   });
 
   describe('default', () => {
-    it('should have a function to inject by src or text', () => {
+    it('should should be true', () => {
       index().should.be.true;
     });
   });
