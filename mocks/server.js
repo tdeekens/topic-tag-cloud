@@ -12,6 +12,9 @@ let
   };
 
 server.connection({
+  routes: {
+    cors: true
+  },
   port: 3000
 });
 
