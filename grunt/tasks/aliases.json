@@ -1,0 +1,14 @@
+{
+  "default": [
+    "test"
+  ],
+  "test": [
+    "eslint"
+  ],
+  "ci-test": [
+    "eslint"
+  ],
+  "serve": [
+    
+  ]
+}

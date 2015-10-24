@@ -1,0 +1,9 @@
+{
+  "src": {
+    "lint": "src/**/*.js",
+    "js": "src/"
+  },
+  "dist": {
+    "js": "dist/"
+  }
+}
