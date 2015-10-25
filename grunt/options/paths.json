@@ -4,10 +4,12 @@
     "server": "mocks/server.js"
   },
   "src": {
+    "stylesheets": "src/stylesheets",
     "lint": "src/**/*.js",
     "js": "src/"
   },
   "dist": {
-    "js": "dist/"
+    "js": "dist/",
+    "stylesheets": "dist/"
   }
 }
