@@ -8,7 +8,7 @@ let
   fixtures = {
     topics: JSON.parse(
       fs.readFileSync(`${__dirname}/fixtures/topics.json`)
-    ).topics
+    )
   };
 
 server.connection({
@@ -35,7 +35,7 @@ server.route({
   handler: function(request, reply) {
     let
       id = request.params.id,
-      topic = fixtures.find(topic => topic.id === id);
+      topic = fixtures.topics.find(topic => topic.id === id);
 
     if (topic) { reply(topic); }
     else { reply(`Requested topic by id = ${id} does not exist.`).code(404) }
