@@ -4,7 +4,12 @@ module.exports = function(config) {
     basePath: '../',
     frameworks: ['mocha'],
     files: [
-      'test/src/**/*.spec.js'
+      'test/src/**/*.spec.js', {
+        pattern: 'mocks/fixtures/**/*.json',
+        watched: true,
+        served: true,
+        included: false
+      }
     ],
 
     preprocessors: {

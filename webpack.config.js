@@ -26,7 +26,8 @@ var
     resolve: {
       alias: {},
       modulesDirectories: [
-        'src'
+        'src',
+        'node_modules'
       ],
       extensions: ['', '.js']
     },
@@ -61,6 +62,9 @@ var
       }),
       new webpack.optimize.UglifyJsPlugin({
         minimize: true
+      }),
+      new webpack.ProvidePlugin({
+        fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
       })
     ],
     development: [
@@ -68,6 +72,9 @@ var
       new webpack.NoErrorsPlugin(),
       new webpack.DefinePlugin({
         'process.env': 'development'
+      }),
+      new webpack.ProvidePlugin({
+        fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
       })
     ]
   };
