@@ -57,9 +57,6 @@ var
   },
   plugins = {
     production: [
-      new webpack.DefinePlugin({
-        'process.env': 'production'
-      }),
       new webpack.optimize.UglifyJsPlugin({
         minimize: true
       }),
@@ -70,9 +67,6 @@ var
     development: [
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
-      new webpack.DefinePlugin({
-        'process.env': 'development'
-      }),
       new webpack.ProvidePlugin({
         fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
       })
