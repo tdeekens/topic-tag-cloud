@@ -22,7 +22,10 @@
   },
   "homepage": "https://github.com/tdeekens/topic-tag-cloud",
   "dependencies": {
-    "grunt-cli": "0.1.13"
+    "classnames": "^2.2.0",
+    "grunt-cli": "0.1.13",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
   },
   "devDependencies": {
     "babel-core": "^5.8.29",
