@@ -10,6 +10,37 @@
 
 1. Node.js in v4.x.x
 - npm@3 (should also work with npm@2)
+- Grunt-cli (`$ npm i grunt-cli`)
+
+## TL;DR
+
+```bash
+npm install
+grunt serve
+open http://localhost:8080
+```
+
+## Tooling & Architecture
+
+1. The project uses `react@0.14.0`
+- Building is done using `webpack` development using a `webpack-dev-server`
+- The provided `topics.json` is served over a mock backend with HapiJS
+  - Running on `localhost:3000` with routes `/topics` and `/topic/{id}`
+- CSS is build using `postcss` within a Grunt build chain
+- Code styling is enforced using `eslint` which also runs on TravisCI
+
+## Intensions & Ideals
+
+- Modular and unit tested JavaScript
+  - ...up to a function level (e.g. `utils.js`, `sentiments.js` and `ranges.js`)
+  - ...component based UI with dump/smart parts (e.g. `ui/components/tag.js`)
+- Documented code using JSDoc
+- CI integration via TravisCI
+  - Running tests on multiple browsers see `test/karma.conf.js`
+- Componentized CSS using BEM (SuitCSS)
+  - ...no css-modules for now :smile:
+- Split up Grunt build chain
+  - ...one task per file with global configuration (`grunt/options`)
 
 ## Installation
 
@@ -31,3 +62,6 @@ serving `/topics` and `/topic/id`. The second server will run on `localhost:8080
 and is a `webpack-dev-server` in hot-module mode.
 
 Navigating your browser to `localhost:8080` will show the tag cloud.
+
+Watch tasks are on changing any part of the mock backend and stylesheets the webpack-dev-server
+takes care of the rest where possible.
