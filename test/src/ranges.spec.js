@@ -1,4 +1,4 @@
-import ranges from '../../src/ranges';
+import ranges, { within } from '../../src/ranges';
 import chai from 'chai';
 
 chai.should();
@@ -33,6 +33,30 @@ describe('ranges', () => {
       sevenRanges.should.have.length(7);
       sevenRanges[0].min.should.be.equal(1);
       sevenRanges[0].max.should.be.equal(2);
+    });
+  });
+
+  describe('within', () => {
+    it('should find an index of a volume for a given range', () => {
+      const
+        twoRanges = ranges([
+          1, 3, 3, 5, 6, 7
+        ], 2),
+        sevenRanges = ranges([
+          1, 3, 3, 5, 6, 7
+        ], 7);
+
+      within(twoRanges, 3).should.equal(0);
+      within(sevenRanges, 4).should.equal(2);
+    });
+
+    it('should handle volumes being out of range', () => {
+      const
+        twoRanges = ranges([
+          1, 3, 3, 5, 6, 7
+        ], 2);
+
+      (within(twoRanges, 100) === undefined).should.be.true;
     });
   });
 });

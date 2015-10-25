@@ -11,13 +11,13 @@ import { min, max, ceil } from 'utils';
  *
  * Note:
  *   All numbers within the ranges are to be ceiled/rounded to their
- * . next biggest integer.
+ *   next biggest integer.
  *
  * @param {Array} bars an array of bars.
  * @param {Number} groups the number of groups the bars will be sorted into.
  * @return {Array} An array of objects each being a range with a min and max value.
  */
-function ranges(bars, groups) {
+export default function ranges(bars, groups) {
   // The width of a bar depends on the max minus the min bar overall
   const
     minBar = min(bars),
@@ -37,6 +37,43 @@ function ranges(bars, groups) {
   }
 
   return ranges;
-};
+}
 
-export default ranges;
+/**
+ * Determines in which range a certain volume lives.
+ * Example:
+ *  An input of ranges being [{
+ *     min: 1, max: 4,
+ *     min: 4: max: 7
+ *  }]
+ *  and a volume of 4 would return the index 0.
+ *
+ * @param {Array} ranges calculated previously.
+ * @param {Number} volume which should be in a range.
+ * @return {Number|undefined} Index of range matching to volume or undefined without a match.
+ */
+export function within(ranges, volume) {
+  // Helper fn taking an x and
+  // checking if it's in a given range
+  // of min and max.
+  const
+    between = function(x, min, max) {
+      return x >= min && x <= max;
+    };
+  let
+    index = 0,
+    matched;
+
+  // For of loop for early exit
+  for (let range of ranges) {
+    if (between(volume, range.min, range.max)) {
+      matched = index;
+
+      break;
+    }
+
+    ++index;
+  }
+
+  return matched;
+};
