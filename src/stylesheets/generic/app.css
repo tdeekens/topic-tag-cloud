@@ -1,0 +1,137 @@
+.topic-tag-cloud {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: var(--corporate-background-color);
+
+  &-header {
+    display: block;
+    height: 4em;
+
+    &:before {
+      display: block;
+      content: '';
+      width: 3em;
+      height: 3em;
+      background-image: svg("ei#navicon");
+      background-size: 100%;
+      opacity: .2;
+    }
+
+    & nav {
+      display: none;
+    }
+  }
+
+  &-tags {
+    display: inline-block;
+    width: 60%;
+    box-sizing: border-box;
+    text-align: center;
+
+    &-tag {
+      display: inline-block;
+      margin: 0 1rem;
+      vertical-align: middle;
+
+      &:after {
+        content: ' '; /* This one ensures wrapping centered tags */
+      }
+      &_importance-0 {
+        font-size: 1rem;
+      }
+      &_importance-1 {
+        font-size: 1.3rem;
+      }
+      &_importance-2 {
+        font-size: 1.6rem;
+      }
+      &_importance-3 {
+        font-size: 1.9rem;
+      }
+      &_importance-4 {
+        font-size: 2.2rem;
+      }
+      &_importance-5 {
+        font-size: 2.5rem;
+      }
+
+      &_sentiment-green {
+        color: green;
+      }
+      &_sentiment-red {
+        color: red;
+      }
+      &_sentiment-grey {
+        color: grey;
+      }
+
+      /* Animation sugar */
+      &_blurred {
+        filter: blur(.4rem);
+        animation: tagcloud-blur 3s;
+        transition: opacity .3s;
+        opacity: .4;
+      }
+      &_focussed {
+
+        animation: tagcloud-focus .15s forwards;
+        transition: opacity .3s;
+      }
+    }
+  }
+
+  &-sidebar {
+    display: inline-block;
+    vertical-align: top;
+    width: 40%;
+    box-sizing: border-box;
+    padding: 1rem;
+    border-left: dashed .1rem var(--corporate-line-color);
+  }
+}
+
+/* Animations */
+@keyframes tagcloud-blur {
+  20% {
+    transform: scale(.8);
+    filter: blur(.2rem);
+  }
+  90% {
+    transform: scale(.8);
+    filter: blur(.2rem);
+  }
+  100% {
+    filter: blur(0rem);
+    transform: scale(1);
+  }
+}
+
+@keyframes tagcloud-focus {
+  60% {
+    transform: scale(1.45);
+  }
+  80% {
+    transform: scale(1.37);
+  }
+  100% {
+    transform: scale(1.4);
+  }
+}
+
+/* Responsiveness */
+@media (--orientation-portrait) {
+  .topic-tag-cloud-tags {
+    display: block;
+    width: 100%;
+  }
+  .topic-tag-cloud-sidebar {
+    display: block;
+    border-left: none;
+    border-top: dashed .1rem var(--corporate-line-color);
+    width: 100%;
+    margin-top: 1rem;
+  }
+}

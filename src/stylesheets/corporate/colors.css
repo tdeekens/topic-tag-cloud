@@ -1,0 +1,9 @@
+/*
+  Add all your corporate design constants here
+*/
+
+:root {
+  --corporate-text-color: #333;
+  --corporate-background-color: #FFF;
+  --corporate-line-color: #0c65a5;
+}
