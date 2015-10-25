@@ -68,14 +68,5 @@ describe('Topic', () => {
         topic.sentiment.neutral.should.be.defined;
       });
     });
-
-    it('should augment the data with a `sentiment.total` property', () => {
-      let
-        topic = new Topic(fixturesUri, '.json');
-
-      topic.get('1751295897__DJ').then(topic => {
-        topic.sentiment.total.should.be.defined;
-      });
-    });
   });
 });
