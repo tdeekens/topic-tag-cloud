@@ -1,4 +1,4 @@
-import { colorFor } from '../../src/sentiments';
+import { colorFor } from '../../src/javascript/sentiments';
 import chai from 'chai';
 
 chai.should();

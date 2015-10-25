@@ -1,4 +1,4 @@
-import ranges, { within } from '../../src/ranges';
+import ranges, { within } from '../../src/javascript/ranges';
 import chai from 'chai';
 
 chai.should();

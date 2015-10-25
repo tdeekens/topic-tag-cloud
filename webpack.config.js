@@ -17,7 +17,7 @@ var
     debug: true,
     devtool: 'inline-source-map',
     entry: [
-      './src/index.js'
+      './src/javascript/index.js'
     ],
     output: {
       path: './dist/',
@@ -26,7 +26,7 @@ var
     resolve: {
       alias: {},
       modulesDirectories: [
-        'src',
+        'src/javascript',
         'node_modules'
       ],
       extensions: ['', '.js']

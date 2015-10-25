@@ -1,4 +1,4 @@
-import { min, max, ceil } from '../../src/utils';
+import { min, max, ceil } from '../../src/javascript/utils';
 import chai from 'chai';
 
 chai.should();

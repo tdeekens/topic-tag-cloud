@@ -1,4 +1,4 @@
-import { Topics, Topic } from '../../src/http';
+import { Topics, Topic } from '../../src/javascript/http';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 

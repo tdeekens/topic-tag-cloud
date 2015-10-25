@@ -24,8 +24,7 @@ module.exports = function(config) {
         resolve: {
           alias: {},
           modulesDirectories: [
-            'src',
-            'bower_modules',
+            'src/javascript',
             'node_modules',
             'test'
           ],
