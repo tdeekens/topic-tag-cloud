@@ -54,9 +54,9 @@ export class Topics {
         return {
           id: entry.id,
           label: entry.label,
-          volume: entry.volume,
-          importance: within(groupedVolumes, entry.volume),
-          sentiment: entry.sentimentScore
+          volume: entry.volume || 0,
+          importance: within(groupedVolumes, entry.volume || 0),
+          sentiment: entry.sentimentScore || 0
         };
       });
 
@@ -104,12 +104,11 @@ export class Topic {
       topic = {
         id: raw.id,
         label: raw.label,
-        volume: raw.volume,
+        volume: raw.volume || 0,
         sentiment: {
-          negative: raw.sentiment.negative,
-          positive: raw.sentiment.positive,
-          neutral: raw.sentiment.neutral,
-          total: raw.sentiment.neutral + raw.sentiment.positive + raw.sentiment.negative
+          negative: raw.sentiment.negative || 0,
+          positive: raw.sentiment.positive || 0,
+          neutral: raw.sentiment.neutral || 0
         }
       };
 
@@ -126,10 +125,14 @@ export class Topic {
    * @return {Promise} promise yieling the transformed resource's response.
    */
   get(id) {
+    let
+      idUri = encodeURIComponent(id);
+
     return new Promise((resolve, reject) => {
-      this.http.get(`topic/${id}${this.extension}`).then(response => {
+      this.http.get(`topic/${idUri}${this.extension}`).then(response => {
         response.json().then(data => {
-          resolve(this.transform(data));
+          if (data.statusCode > 200) { reject(); }
+          else { resolve(this.transform(data)) }
         });
       });
     });

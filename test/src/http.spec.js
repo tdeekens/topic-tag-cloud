@@ -69,4 +69,18 @@ describe('Topic', () => {
       });
     });
   });
+
+  it('should handle unset fields within a sentiment from a `fixture`', () => {
+    let
+      topic = new Topic(fixturesUri, '.json');
+
+    topic.get('1751295897__DB_Presents').then(topic => {
+
+      topic.sentiment.should.be.defined;
+
+      topic.sentiment.positive.should.be.defined;
+      topic.sentiment.negative.should.be.defined;
+      topic.sentiment.neutral.should.be.defined;
+    });
+  });
 });
