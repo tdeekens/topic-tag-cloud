@@ -2,6 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import { colorFor } from '../../sentiments'
 
+/**
+ * @class Sidebar
+ * @classdesc React component rendering the sidebar for a tag.
+ *
+ * @param {Object} props according to proptyes
+ */
 class Sidebar extends Component {
   constructor(props, context) {
     super(props, context);
@@ -13,6 +19,7 @@ class Sidebar extends Component {
       information,
       element;
 
+    // tag label means rendering detailed information
     if (tag.label) {
       information = (
         <div className="topic-tag-cloud-sidebar-information">
@@ -26,6 +33,7 @@ class Sidebar extends Component {
         </div>
       );
     } else {
+      // otherwise show user to select something
       information = (
         <div>
           Please select a tag within the cloud to display more information.

@@ -2,6 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import { colorFor } from '../../sentiments'
 
+/**
+ * @class Sidebar
+ * @classdesc React component rendering a tag itself.
+ *
+ * @param {Object} props according to proptyes (tag itself and selection callback)
+ */
 class Tag extends Component {
   constructor(props, context) {
     super(props, context);
@@ -15,6 +21,7 @@ class Tag extends Component {
     const { tag, tagSelected } = this.props;
 
     let
+      // generate classnames using the colorFor-fn
       element = (
         <div
           className={classnames(

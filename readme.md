@@ -41,6 +41,7 @@ open http://localhost:8080
   - ...no css-modules for now :smile:
 - Split up Grunt build chain
   - ...one task per file with global configuration (`grunt/options`)
+- Play around with semantic commit messages to maybe get to like 'em
 
 ## Installation
 
