@@ -23,6 +23,7 @@
   "homepage": "https://github.com/tdeekens/topic-tag-cloud",
   "dependencies": {
     "classnames": "^2.2.0",
+    "es6-promise": "^3.0.2",
     "grunt-cli": "0.1.13",
     "react": "^0.14.0",
     "react-dom": "^0.14.0"
