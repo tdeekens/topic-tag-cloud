@@ -16,6 +16,7 @@
 | IE            | 8 / 10        | :thumbsup: |
 | Opera         | 8.1 / 31      | :thumbsup: |
 | Firefox       | OSX / 40      | :thumbsup: |
+| Firefox       | Linux / 31    | :thumbsup: |
 | Chrome        | OSX / 44      | :thumbsup: |
 
 ## Prerequisites
