@@ -2,9 +2,11 @@
 
 [![Build Status](https://travis-ci.org/tdeekens/topic-tag-cloud.svg?branch=master)](https://travis-ci.org/tdeekens/topic-tag-cloud) ♦️
 [![Dependency Status](https://david-dm.org/tdeekens/topic-tag-cloud.svg?style=flat)](https://david-dm.org/tdeekens/topic-tag-cloud) ♦️
-[![devDependency Status](https://david-dm.org/tdeekens/topic-tag-cloud/dev-status.svg)](https://david-dm.org/tdeekens/topic-tag-cloud#info=devDependencies) ♦
+[![devDependency Status](https://david-dm.org/tdeekens/topic-tag-cloud/dev-status.svg)](https://david-dm.org/tdeekens/topic-tag-cloud#info=devDependencies)
 
 > A demo application rendering a tag cloud from an fixture.
+
+![Teh lookz](https://raw.githubusercontent.com/tdeekens/topic-tag-cloud/master/docs/topic-tag-cloud-screenshot.png)
 
 ## Prerequisites
 
