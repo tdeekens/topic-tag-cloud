@@ -15,7 +15,9 @@ class TagCloud extends Component {
 
     this.state = {
       tags: [],
-      tag: {}
+      tag: {
+        id: ''
+      }
     };
 
     this.topics = new Topics(this.props.uri);
@@ -31,6 +33,7 @@ class TagCloud extends Component {
   }
 
   tagSelected(id) {
+    // Fetch data from backend and set state
     this.topic.get(id).then(topic => {
       this.setState({
         tag: topic
@@ -40,8 +43,8 @@ class TagCloud extends Component {
 
   render() {
     return (
-      <div className="topic-tag-cloud">
-        <Tags tags={this.state.tags} tagSelected={this.tagSelected.bind(this)}/>
+      <div className="topic-tag-cloud u-3d">
+        <Tags tags={this.state.tags} selectedTagId={this.state.tag.id} tagSelected={this.tagSelected.bind(this)}/>
         <Sidebar tag={this.state.tag} />
       </div>
     );
