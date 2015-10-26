@@ -1,9 +1,5 @@
 .topic-tag-cloud {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
+  margin: 10% 15%;
   background-color: var(--corporate-background-color);
 
   &-header {
@@ -18,10 +14,6 @@
       background-image: svg("ei#navicon");
       background-size: 100%;
       opacity: .2;
-    }
-
-    & nav {
-      display: none;
     }
   }
 
@@ -90,6 +82,25 @@
     box-sizing: border-box;
     padding: 1rem;
     border-left: dashed .1rem var(--corporate-line-color);
+
+    &-information {
+      h1 {
+        margin: 0 10px 0 0;
+      }
+      &-mentions {
+        padding: 0 5px;
+
+        &_grey {
+          color: grey;
+        }
+        &_green {
+          color: green;
+        }
+        &_red {
+          color: red;
+        }
+      }
+    }
   }
 }
 

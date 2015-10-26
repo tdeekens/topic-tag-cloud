@@ -21,14 +21,41 @@ class Sidebar extends Component {
 
     // tag label means rendering detailed information
     if (tag.label) {
+      let
+        classNameRoot = 'topic-tag-cloud-sidebar-information-mentions topic-tag-cloud-sidebar-information-mentions';
+
       information = (
         <div className="topic-tag-cloud-sidebar-information">
           <h1>{tag.label}</h1>
           <ul>
-            <li>Total Mentions: <span>{tag.volume}</span></li>
-            <li>Positive Mentions: <span className={classnames(`topic-tag-cloud-sidebar-information_${colorFor(tag.sentiment)}`)}>{tag.sentiment.positive}</span></li>
-            <li>Neutral Mentions: <span className={classnames(`topic-tag-cloud-sidebar-information_${colorFor(tag.sentiment)}`)}>{tag.sentiment.neutral}</span></li>
-            <li>Negative Mentions: <span className={classnames(`topic-tag-cloud-sidebar-information_${colorFor(tag.sentiment)}`)}>{tag.sentiment.negative}</span></li>
+            <li>
+              Total Mentions:
+              <span
+                className={classnames(`${classNameRoot}_${colorFor(tag.volume)}`)}>
+                {tag.volume}
+              </span>
+            </li>
+            <li>
+              Positive Mentions:
+              <span
+                className={classnames(`${classNameRoot}_${colorFor(tag.sentiment.positive)}`)}>
+                 {tag.sentiment.positive}
+              </span>
+            </li>
+            <li>
+              Neutral Mentions:
+              <span
+                className={classnames(`${classNameRoot}_${colorFor(tag.sentiment.neutral)}`)}>
+                {tag.sentiment.neutral}
+              </span>
+            </li>
+            <li>
+              Negative Mentions:
+              <span
+                className={classnames(`${classNameRoot}_${colorFor(tag.sentiment.negative)}`)}>
+                {tag.sentiment.negative}
+              </span>
+            </li>
           </ul>
         </div>
       );
