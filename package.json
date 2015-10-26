@@ -68,13 +68,11 @@
     "postcss-custom-properties": "^5.0.0",
     "postcss-import": "^7.0.0",
     "postcss-nested": "^1.0.0",
-    "postcss-svg": "^1.0.1",
     "react-addons-test-utils": "^0.14.0",
     "style-loader": "^0.13.0",
     "time-grunt": "1.2.2",
     "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.12.1",
-    "whatwg-fetch": "^0.10.0"
+    "webpack-dev-server": "^1.12.1"
   },
   "peerDependencies": {
     "grunt": "~0.4.5",

@@ -16,9 +16,47 @@ class Http {
    *
    * @return {Promise} promise yieling the response.
    */
-  get(resource) {
-    // Relies on the new fetch API (polyfill if needed).
-    return fetch(`${this.uri}/${resource}`);
+  get(resource, options = {}) {
+    return new Promise((resolve, reject) => {
+      let
+        url = `${this.uri}/${resource}`,
+        xhr = new XMLHttpRequest();
+
+      if ('withCredentials' in xhr) {
+        // XHR for Chrome/Firefox/Opera/Safari.
+        xhr.open('GET', url, true);
+      } else if (typeof XDomainRequest !== 'undefined') {
+        // XDomainRequest for IE.
+        xhr = new XDomainRequest();
+        xhr.open('GET', url);
+      } else {
+        // CORS not supported.
+        xhr = null;
+      }
+
+      if (options.withCredentials) {
+        xhr.withCredentials = true;
+      }
+
+      // Response handlers.
+      xhr.onload = () => {
+        if (xhr.status >= 400) {
+          reject(xhr);
+        } else {
+          resolve({
+            xhr: xhr,
+            text: xhr.responseText,
+            url: xhr.responseURL
+          });
+        }
+      };
+
+      xhr.onerror = () => {
+        reject(xhr);
+      };
+
+      xhr.send();
+    });
   }
 }
 
@@ -72,9 +110,12 @@ export class Topics {
   get() {
     return new Promise((resolve, reject) => {
       this.http.get(`topics${this.extension}`).then(response => {
-        response.json().then(data => {
-          resolve(this.transform(data));
-        });
+        let {
+          text: responseText,
+        } = response,
+        data = JSON.parse(responseText);
+
+        resolve(this.transform(data));
       });
     });
   }
@@ -130,10 +171,13 @@ export class Topic {
 
     return new Promise((resolve, reject) => {
       this.http.get(`topic/${idUri}${this.extension}`).then(response => {
-        response.json().then(data => {
-          if (data.statusCode > 200) { reject(); }
-          else { resolve(this.transform(data)) }
-        });
+        let {
+          text: responseText,
+        } = response,
+        data = JSON.parse(responseText);
+
+        if (data.statusCode > 200) { reject(); }
+        else { resolve(this.transform(data)) }
       });
     });
   }

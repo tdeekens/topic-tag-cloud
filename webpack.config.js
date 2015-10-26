@@ -59,17 +59,11 @@ var
     production: [
       new webpack.optimize.UglifyJsPlugin({
         minimize: true
-      }),
-      new webpack.ProvidePlugin({
-        fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
       })
     ],
     development: [
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin(),
-      new webpack.ProvidePlugin({
-        fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
-      })
+      new webpack.NoErrorsPlugin()
     ]
   };
 
