@@ -64,8 +64,11 @@ export function within(ranges, volume) {
     index = 0,
     matched;
 
-  // For of loop for early exit
-  for (let range of ranges) {
+  // Optimized for of loop for early exit
+  for (let i = 0, len = ranges.length; i < len; i++) {
+    let
+      range = ranges[i];
+
     if (between(volume, range.min, range.max)) {
       matched = index;
 
