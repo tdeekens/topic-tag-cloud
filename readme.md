@@ -10,7 +10,7 @@
 
 1. Node.js in v4.x.x
 - npm@3 (should also work with npm@2)
-- Grunt-cli (`$ npm i grunt-cli`)
+- Grunt-cli (`$ npm i grunt-cli -g`)
 
 ## TL;DR
 
