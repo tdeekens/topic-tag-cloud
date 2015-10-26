@@ -1,36 +1,22 @@
 .topic-tag-cloud {
-  margin: 10% 15%;
-  background-color: var(--corporate-background-color);
-
-  &-header {
-    display: block;
-    height: 4em;
-
-    &:before {
-      display: block;
-      content: '';
-      width: 3em;
-      height: 3em;
-      background-image: svg("ei#navicon");
-      background-size: 100%;
-      opacity: .2;
-    }
-  }
 
   &-tags {
     display: inline-block;
     width: 60%;
+    margin-top: 1rem;
     box-sizing: border-box;
     text-align: center;
 
     &-tag {
       display: inline-block;
-      margin: 0 1rem;
+      margin: .2rem 1rem;
       vertical-align: middle;
+      cursor: pointer;
 
       &:after {
         content: ' '; /* This one ensures wrapping centered tags */
       }
+
       &_importance-0 {
         font-size: 1rem;
       }
@@ -51,37 +37,31 @@
       }
 
       &_sentiment-green {
-        color: green;
+        color: var(--corporate-green);
       }
       &_sentiment-red {
-        color: red;
+        color: var(--corporate-red);
       }
       &_sentiment-grey {
-        color: grey;
+        color: var(--corporate-grey);
       }
 
       /* Animation sugar */
-      &_blurred {
-        filter: blur(.4rem);
-        animation: tagcloud-blur 3s;
-        transition: opacity .3s;
-        opacity: .4;
-      }
       &_focussed {
-
         animation: tagcloud-focus .15s forwards;
-        transition: opacity .3s;
+        background-color: rgba(255, 255, 255, .9);
       }
     }
   }
 
   &-sidebar {
     display: inline-block;
-    vertical-align: top;
     width: 40%;
-    box-sizing: border-box;
+    margin-top: 1rem;
     padding: 1rem;
+    box-sizing: border-box;
     border-left: dashed .1rem var(--corporate-line-color);
+    vertical-align: top;
 
     &-information {
       h1 {
@@ -90,14 +70,14 @@
       &-mentions {
         padding: 0 5px;
 
-        &_grey {
-          color: grey;
-        }
         &_green {
-          color: green;
+          color: var(--corporate-green);
         }
         &_red {
-          color: red;
+          color: var(--corporate-red);
+        }
+        &_grey {
+          color: var(--corporate-grey);
         }
       }
     }
@@ -105,21 +85,6 @@
 }
 
 /* Animations */
-@keyframes tagcloud-blur {
-  20% {
-    transform: scale(.8);
-    filter: blur(.2rem);
-  }
-  90% {
-    transform: scale(.8);
-    filter: blur(.2rem);
-  }
-  100% {
-    filter: blur(0rem);
-    transform: scale(1);
-  }
-}
-
 @keyframes tagcloud-focus {
   60% {
     transform: scale(1.45);
@@ -135,14 +100,11 @@
 /* Responsiveness */
 @media (--orientation-portrait) {
   .topic-tag-cloud-tags {
-    display: block;
     width: 100%;
   }
   .topic-tag-cloud-sidebar {
-    display: block;
     border-left: none;
     border-top: dashed .1rem var(--corporate-line-color);
     width: 100%;
-    margin-top: 1rem;
   }
 }
