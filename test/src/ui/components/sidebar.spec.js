@@ -7,21 +7,7 @@ import chaiString from 'chai-string';
 chai.should();
 chai.use(chaiString);
 
-function setup() {
-  const
-    props = {
-      tag: {
-        id: 0,
-        label: 'Foo',
-        volume: 100,
-        sentiment: {
-          positive: 10,
-          negative: 20,
-          neutral: 70
-        }
-      }
-    };
-
+function setup(props) {
   const
     renderer = TestUtils.createRenderer();
 
@@ -40,11 +26,51 @@ function setup() {
 }
 
 describe('Sidebar', () => {
+  var
+    propsWithTag = {
+      tag: {
+        id: 0,
+        label: 'Foo',
+        volume: 100,
+        sentiment: {
+          positive: 10,
+          negative: 20,
+          neutral: 70
+        }
+      }
+    },
+    propsWithoutTag = {
+      tag: {}
+    };
+
   describe('render', () => {
     it('should assign correct classnames', () => {
-      const { output } = setup();
+      const
+        { output } = setup(propsWithoutTag);
 
       output.props.className.should.contain('topic-tag-cloud-sidebar');
+    });
+
+    it('should give an indication whenever no tag is selected', () => {
+      const
+        { output } = setup(propsWithoutTag);
+
+      output.props.children.props.className.should.contain('topic-tag-cloud-sidebar-information_empty');
+    });
+
+    it('should give an indication whenever a tag is selected', () => {
+      const
+        { output } = setup(propsWithTag);
+
+      output.props.children.props.className.should.contain('topic-tag-cloud-sidebar-information');
+    });
+
+    it('should give an indication whenever a tag is selected', () => {
+      const
+        { output } = setup(propsWithTag);
+
+      output.props.children.props.className.should.contain('topic-tag-cloud-sidebar-information');
+      output.props.children.props.children.should.have.length(2);
     });
   });
 });

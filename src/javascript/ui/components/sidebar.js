@@ -62,7 +62,7 @@ class Sidebar extends Component {
     } else {
       // otherwise show user to select something
       information = (
-        <div>
+        <div className="topic-tag-cloud-sidebar-information topic-tag-cloud-sidebar-information_empty">
           Please select a tag within the cloud to display more information.
         </div>
       );
