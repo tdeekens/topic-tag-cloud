@@ -8,6 +8,16 @@
 
 ![Teh lookz](https://raw.githubusercontent.com/tdeekens/topic-tag-cloud/master/docs/topic-tag-cloud-screenshot.png)
 
+## Test matrix (BrowserStack has no Saucelabs-style badge :crying_cat_face:)
+
+| Browser       | OS / Version  | Status     |
+| ------------- |:-------------:| ----------:|
+| IE            | 8.1 / 11      | :thumbsup: |
+| IE            | 8 / 10        | :thumbsup: |
+| Opera         | 8.1 / 31      | :thumbsup: |
+| Firefox       | OSX / 40      | :thumbsup: |
+| Chrome        | OSX / 44      | :thumbsup: |
+
 ## Prerequisites
 
 1. Node.js in v4.x.x
@@ -42,7 +52,7 @@ open http://localhost:8080
 - Documented code using JSDoc
 - CI integration via TravisCI
   - Running tests on multiple browsers see `test/karma.conf.js`
-- Componentized CSS using BEM (SuitCSS)
+- Componentized CSS using BEM
   - ...no css-modules for now :smile:
 - Split up Grunt build chain
   - ...one task per file with global configuration (`grunt/options`)
