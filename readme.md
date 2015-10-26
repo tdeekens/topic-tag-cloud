@@ -23,6 +23,8 @@ open http://localhost:8080
 ## Tooling & Architecture
 
 1. The project uses `react@0.14.0`
+  - ...no assumptions are made regarding e.g. flux, redux as too little goes on and the project's focus is elsewhere (see below)
+  - ...also no routing at this stage
 - Building is done using `webpack` development using a `webpack-dev-server`
 - The provided `topics.json` is served over a mock backend with HapiJS
   - Running on `localhost:3000` with routes `/topics` and `/topic/{id}`
