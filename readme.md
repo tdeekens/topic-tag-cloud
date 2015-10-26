@@ -38,6 +38,7 @@ open http://localhost:8080
 - Modular and unit tested JavaScript
   - ...up to a function level (e.g. `utils.js`, `sentiments.js` and `ranges.js`)
   - ...component based UI with dump/smart parts (e.g. `ui/components/tag.js`)
+  - ...smart components encapsulating data fetching from a source
 - Documented code using JSDoc
 - CI integration via TravisCI
   - Running tests on multiple browsers see `test/karma.conf.js`
