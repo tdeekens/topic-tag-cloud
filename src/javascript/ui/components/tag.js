@@ -18,16 +18,25 @@ class Tag extends Component {
   }
 
   render() {
-    const { tag, tagSelected } = this.props;
+    const
+      {
+        tag,
+        tagSelected,
+        selectedTagId
+      } = this.props,
+      classNameRoot = 'topic-tag-cloud-tags-tag',
+      stateClass = (selectedTagId === tag.id) ?
+        `${classNameRoot}_focussed` : ``;
 
     let
       // generate classnames using the colorFor-fn
       element = (
         <div
           className={classnames(
-            `topic-tag-cloud-tags-tag`,
-            `topic-tag-cloud-tags-tag_importance-${tag.importance}`,
-            `topic-tag-cloud-tags-tag_sentiment-${colorFor(tag.sentiment)}`
+            stateClass,
+            `${classNameRoot}`,
+            `${classNameRoot}_importance-${tag.importance}`,
+            `${classNameRoot}_sentiment-${colorFor(tag.volume)}`
           )}
           onClick={this.handleClick.bind(this)}>
           {tag.label}
@@ -40,6 +49,7 @@ class Tag extends Component {
 
 Tag.propTypes = {
   tag: PropTypes.object.isRequired,
+  selectedTagId: PropTypes.string.isRequired,
   tagSelected: PropTypes.func.isRequired
 };
 

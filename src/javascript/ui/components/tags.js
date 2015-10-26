@@ -14,7 +14,11 @@ class Tags extends Component {
   }
 
   render() {
-    const { tags, tagSelected } = this.props;
+    const {
+      tags,
+      tagSelected,
+      selectedTagId
+    } = this.props;
 
     let
       element = (
@@ -23,7 +27,7 @@ class Tags extends Component {
             `topic-tag-cloud-tags`
           )}>
           {tags.map(tag =>
-            <Tag key={tag.id} tag={tag} tagSelected={tagSelected} />
+            <Tag key={tag.id} selectedTagId={selectedTagId} tag={tag} tagSelected={tagSelected} />
           )}
         </div>
       );
@@ -34,6 +38,7 @@ class Tags extends Component {
 
 Tags.propTypes = {
   tags: PropTypes.array.isRequired,
+  selectedTagId: PropTypes.string.isRequired,
   tagSelected: PropTypes.func.isRequired
 };
 

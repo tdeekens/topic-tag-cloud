@@ -17,6 +17,7 @@ function setup() {
         importance: 1,
         sentiment: 20
       },
+      selectedTagId: '',
       tagSelected: () => { return true; }
     };
 
